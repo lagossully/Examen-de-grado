@@ -38,6 +38,7 @@ dbase = dict([
       ('Profesor', ''),
       ('Tutoría', ''),
 ])
+competidor1 = {"nombre": "Juan", "edad": 32, "prueba": "50M"}
 
 respuesta = 0
 contador = 0

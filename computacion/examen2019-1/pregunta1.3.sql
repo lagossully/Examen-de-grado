@@ -18,10 +18,10 @@ LIMIT 1;
 SELECT P.nombre
 FROM Participantes P, Participacion PR, Prueba PU, ParticipantesYParticipacion PYP
 WHERE P.id = PYP.participanteID AND PR.id = PYP.ParticipacionID AND PR.tipopruebaID = PU.faseI
-AND PU.relevo = 1 AND P.pais = 'Chile';
+AND PU.relevo = 1 AND P.pais = 'Chile' AND PU.sexo = Mix;
 
 --- pregunta 1.3.d
 SELECT P.nombre, P.pais
 FROM Participantes P, Competencia C, Prueba PU, Inscripcion I, Campeonato CA, Fase F
 WHERE P.id = I.participanteID AND I.tipopruebaID = PU.id AND PU.competenciaID = C.id AND C.faseID = F.id AND F.campeonatoID = CA.id
-AND CA.nombre = 'Campeonato Absoluto' AND F.nombre = 'Final' AND P.genero = 'F' AND PU.distancia = 400 AND PU.estilo = 'L'
+AND CA.nombre = 'Campeonato Absoluto' AND F.nombre = 'Final' AND P.genero = 'F' AND PU.distancia = 400 AND PU.estilo = 'L';
