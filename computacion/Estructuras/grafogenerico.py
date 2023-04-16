@@ -1,4 +1,5 @@
 import networkx as nx
+from networkx.algorithms import tree
 
 # Crear el grafo
 G = nx.Graph()
@@ -14,3 +15,21 @@ T = nx.minimum_spanning_tree(G)
 
 # Mostrar el árbol resultante
 print(T.edges())
+
+######kruskal
+G = nx.cycle_graph(4)
+G.add_edge(0, 3, weight=2)
+mst = tree.minimum_spanning_edges(G, algorithm="kruskal", data=False)
+edgelist = list(mst)
+sorted(sorted(e) for e in edgelist)
+print(edgelist)
+
+
+######Prim
+G = nx.cycle_graph(4)
+G.add_edge(0, 3, weight=2)
+mst = tree.minimum_spanning_edges(G, algorithm="prim", data=False)
+edgelist = list(mst)
+sorted(sorted(e) for e in edgelist)
+print(edgelist)
+
