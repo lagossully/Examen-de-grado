@@ -1,0 +1,7 @@
+RF1.-
+Descripcion: Componente para asignar las salas para las tutorias
+Entrada: El sistema
+Salida: 
+Catergoria: 
+Prioridad: Alta
+
