@@ -30,12 +30,40 @@ create table organizan (id_jo int foreign key references jjoos(id), id_pais int 
 
 create table resultados(deportista_id int foreign key references deportistas(rut),id_villa int foreign key references villas_olimnpicas(id), resultado varchar)
 
+--Otras agregaciones by kiwix
+
+create table compiten(rut int foreign key references deportistas(rut), num_serie int foreign key references competencias(num_serie), tiempo float, lugar int)
 --consultas no alcance x tiempo :(
+
+
+    -- Ahora hechas por Kiwix :)
 
 --Nombres y nacionalidades de deportistas que compiten en más de una disciplina, junto con el nombre de esas disciplinas.
 
+SELECT deportistas.nombre , paises.nombre FROM deportistas, paises, disciplinas, competencias, compiten 
+WHERE deportistas.id_pais = paises.id AND deportista.rut = compiten.rut AND compiten.num_serie = competencias.num_serie AND competencias.diciplina_id = disciplinas.id 
+GROUP BY deportistas.rut 
+HAVING COUNT(disciplinas.id) > 1;
+
+
 -- Nombres de países cuyas atletas mujeres obtuvieron más medallas (totales) que los atletas hombres.
+
+SELECT paises.nombre FROM paises, deportistas, medallas, ganan
+WHERE paises.id = deportistas.id_pais AND deportista.rut = ganan.deportista_id AND ganan.medalla_id = medallas.id AND deportistas.sexo = 'F'
+GROUP by paises.nombre
+HAVING COUNT(medallas.id) > (SELECT COUNT(medallas.id) FROM paises, deportistas, medallas, ganan
+WHERE paises.id = deportistas.id_pais AND deportista.rut = ganan.deportista_id AND ganan.medalla_id = medallas.id AND deportistas.sexo = 'M'
 
 -- Ranking de países en el medallero.
 
+SELECT paises.nombre, COUNT(medallas.id) FROM paises, deportistas, medallas, ganan
+WHERE paises.id = deportistas.id_pais AND deportista.rut = ganan.deportista_id AND ganan.medalla_id = medallas.id
+GROUP BY paises.nombre
+ORDER BY COUNT(medallas.id) DESC;
+
 --- Cantidad de países que no tienen un récord olímpico
+
+SELECT COUNT(paises.id) FROM paises, deportistas, records, obtienen
+WHERE paises.id = deportistas.id_pais AND deportistas.rut = obtienen.id_deportista AND obtienen.id_record = records.id
+GROUP BY paises.nombre
+HAVING COUNT(records.id) = 0;
