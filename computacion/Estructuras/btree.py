@@ -74,3 +74,17 @@ class arbol: #clase arbol
                 nodo = nodo.der
             elif nodo.der == None:
                 nodo = nodo.izq
+
+
+arbolito = arbol()
+
+if __name__ == "__main__":
+    arbolito.insertar(1, "hola")
+    arbolito.insertar(2, "mundo")
+    arbolito.insertar(3, "cruel")
+    arbolito.insertar(4, "de")
+    arbolito.insertar(5, "python")
+    print(arbolito)
+    print(arbolito.buscar(3))
+    arbolito.eliminar(3)
+    print(arbolito)

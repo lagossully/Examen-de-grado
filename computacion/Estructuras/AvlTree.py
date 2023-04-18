@@ -88,6 +88,24 @@ class AVLTree(object):
 		self.preOrder(root.l)
 		self.preOrder(root.r)
 
+	def postOrder(self, root):
+		if not root:
+			return
+
+		self.postOrder(root.l)
+		self.postOrder(root.r)
+		print("{0} ".format(root.value), end="")
+
+	def inOrder(self, root):
+		if not root:
+			return
+
+		self.inOrder(root.l)
+		print("{0} ".format(root.value), end="")
+		self.inOrder(root.r)
+
+	
+
 Tree = AVLTree()
 root = None
 
@@ -102,4 +120,16 @@ root = Tree.insert(root, 6)
 print("Preorder traversal of the",
 	"constructed AVL tree is")
 Tree.preOrder(root)
+print()
+
+# Inorder Traversal
+print("Inorder traversal of the",
+	"constructed AVL tree is")
+Tree.inOrder(root)
+print()
+
+# Postorder Traversal
+print("Postorder traversal of the",
+	"constructed AVL tree is")
+Tree.postOrder(root)
 print()
