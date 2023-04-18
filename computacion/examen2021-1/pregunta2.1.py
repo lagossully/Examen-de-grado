@@ -1,3 +1,7 @@
+import threading
+import time
+import random
+
 class Queue_de_series:
     def __init__(self):
         self.series = []
@@ -27,6 +31,8 @@ global mutex_carril6
 global mutex_carril7
 global mutex_carril8
 global mutex_carril9
+
+
 class Proceso_rellenador_carriles(threading.Thread):
     def run(self):
         while (True):
@@ -68,7 +74,7 @@ class Proceso_carrera(threading.Thread):
             mutex_carril9.release()
             print("terminamos de correr")
             # tiempo para desencolar la serie a la piscina 1
-rellenador = proceso_rellenador_carriles()
+rellenador = Proceso_rellenador_carriles()
 rellenador.start()
 desencolador=Proceso_carrera()
 desencolador.start()
