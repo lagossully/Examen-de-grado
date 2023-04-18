@@ -15,10 +15,12 @@ El beneficio principal de esta arquitectura es que permite una mayor escalabilid
 Los servidores pueden ser diseñados y optimizados para manejar grandes cantidades de datos y solicitudes de clientes,
 mientras que los clientes pueden ser desarrollados en diferentes lenguajes y plataformas para adaptarse a las necesidades específicas del usuario.
 Además, el modelo cliente-servidor facilita la administración de seguridad y la implementación de medidas de protección contra amenazas,
-ya que los servidores pueden centralizar la gestión de los datos y aplicar políticas de seguridad de manera efectiva.
+ya que los servidores pueden centralizar la gestión de los datos y aplicar políticas de seguridad de manera efectiva
+
+
 
 En resumen, mientras que la arquitectura de software se enfoca en la organización general del sistema y los principios que guían la toma de decisiones de diseño, los patrones de diseño proporcionan soluciones reutilizables a problemas específicos de diseño que pueden surgir en diferentes sistemas de software. La arquitectura de software y los patrones de diseño son complementarios y se utilizan juntos para crear sistemas de software robustos y escalables.
-[23:06]
+
 Aquí te presento algunos ejemplos comunes de arquitecturas de software y patrones de diseño:
 
 Arquitecturas de software:
