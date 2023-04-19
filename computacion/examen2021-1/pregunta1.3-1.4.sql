@@ -15,7 +15,7 @@ create table records(id int primary key , competencia_id foreign key references 
 
 
 create table ganan (medalla_id int foreign key references medallas(id), deportista_id int foreign key references deportistas(id))
-create table reparten((medalla_id int foreign key references medallas(id),comp_numserie int foreign key references competencias(id))
+create table reparten(medalla_id int foreign key references medallas(id),comp_numserie int foreign key references competencias(id))
 
 create table villas_olimnpicas(id int primary key , id_pais foreign key references paises(id), direccion varchar(), capacidad int , ciudad varchar())
 create table descanzan (rut_deportista varchar foreign key references deportistas(rut),id_villa int foreign key references villas_olimnpicas(id), fecha date)
@@ -36,7 +36,7 @@ create table compiten(rut int foreign key references deportistas(rut), num_serie
 --consultas no alcance x tiempo :(
 
 
-    -- Ahora hechas por Kiwix :)
+    -- Ahora hechas por Kiwix :) -->>>> JAJAJAJA
 
 --Nombres y nacionalidades de deportistas que compiten en más de una disciplina, junto con el nombre de esas disciplinas.
 
